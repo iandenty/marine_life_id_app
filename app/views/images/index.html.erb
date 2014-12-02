@@ -2,13 +2,11 @@
 
 <table>
   <tr>
-    <th>User</th>
     <th>Date time</th>
     <th>Image</th>
     <th>Lat</th>
     <th>Long</th>
     <th>Species</th>
-    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,13 +14,11 @@
 
 <% @images.each do |image| %>
   <tr>
-    <td><%= image.user_id %></td>
     <td><%= image.date_time %></td>
-    <td><%= image.image %></td>
+    <td><%= image_tag image.image_url(:thumb).to_s %></td>
     <td><%= image.lat %></td>
     <td><%= image.long %></td>
     <td><%= image.species %></td>
-    <td><%= image.status %></td>
     <td><%= link_to 'Show', image %></td>
     <td><%= link_to 'Edit', edit_image_path(image) %></td>
     <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
