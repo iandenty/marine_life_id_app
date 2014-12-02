@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: MyString
+  suborder: MyString
+  family: MyString
+  common_name: MyString
+  scientific_name: MyString
+  image: MyText
+
+two:
+  order: MyString
+  suborder: MyString
+  family: MyString
+  common_name: MyString
+  scientific_name: MyString
+  image: MyText
