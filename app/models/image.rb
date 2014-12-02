@@ -1,8 +1,8 @@
 class Image < ActiveRecord::Base
   attr_accessible :date_time, :image, :lat, :long, :species, :status, :user_id
-
+  belongs_to :user
   mount_uploader :image, ImageUploader
-
+  validates :image, presence: true
   before_save :extract_exif
 
   def extract_exif
