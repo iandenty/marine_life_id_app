@@ -1,0 +1,13 @@
+<div>
+  <ul>
+      <li><%= image_tag @images.image_url(:thumb).to_s %></li>
+      <li><%= @images.id %></li>
+      <li><%= @images.date_time %></li>
+      <li><%= @images.lat %></li>
+      <li><%= @images.long %></li>
+      <li><%= @images.species %></li>
+      <li><%= link_to 'Show', @images %></li>
+      <li><%= link_to 'Edit', edit_image_path(@images) %></li>
+      <li><%= link_to 'Destroy', @images, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+</div>
