@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.generate_random_image(current_user.id)
+    @image = Image.generate_random_image(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb

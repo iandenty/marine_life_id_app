@@ -6,6 +6,9 @@ class Image < ActiveRecord::Base
   validates :image, presence: true
   before_save :extract_exif
 
+  #-----------------------------------------------------
+    # Extract exif information from image
+  #-----------------------------------------------------
 
   def extract_exif
     path = File.join(Rails.root, "public", self.image.url)
@@ -17,17 +20,11 @@ class Image < ActiveRecord::Base
     end
   end
 
-  def extract_exif
-    path = File.join(Rails.root, "public", self.image.url)
-    exif_data = EXIFR::JPEG.new(path)
-    if exif_data.gps?
-      self.date_time = exif_data.date_time
-      self.lat = exif_data.gps_lat
-      self.long = exif_data.gps_lng
-    end
-  end
 
+#-----------------------------------------------------
   # Image is available for user identification and randomised
+#-----------------------------------------------------
+
   def is_image_available?
     self.status != "reviewed"
   end
@@ -47,6 +44,7 @@ class Image < ActiveRecord::Base
 
   def are_photos_left? 
       # TODO: NEED TO WRITE LOGIC HERE IF ALL PHOTOS HAVE BEEN IDENTIFIED
+      # OTHERWISE STACK TOO DEEP ERROR
   end
 
   def self.select_random_image(random_image, current_user)
@@ -57,3 +55,8 @@ class Image < ActiveRecord::Base
     end
   end
 end
+
+#-----------------------------------------------------
+  # Identification logic
+#-----------------------------------------------------
+
