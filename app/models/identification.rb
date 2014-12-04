@@ -6,8 +6,9 @@ class Identification < ActiveRecord::Base
   #---------------------------------------------------
   #Identification logic
   #---------------------------------------------------
-def new_identification?
-  common_name.exist?
+
+def self.is_practice_correct?(params)
+  Image.find(params[:image_id]).species == params[:identification][:common_name]
 end
 
 

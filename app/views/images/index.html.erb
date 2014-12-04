@@ -1,24 +1,13 @@
 
+<button id="identify" type="button">Identify</button>
+<button id="practice" type="button">Practice</button>
+
 <%=render 'nextImage'%>
 
-<%= form_for([@image, @identification]) do |f| %>
-  <%= hidden_field_tag :image_id, @image.id%>
-  <div class="field">
-    <%= f.label :suborder %><br />
-    <%= f.text_field :suborder %>
-  </div>
-  <div class="field">
-    <%= f.label :family %><br />
-    <%= f.text_field :family %>
-  </div>
-  <div class="field">
-    <%= f.label :common_name %><br />
-    <%= f.text_field :common_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+<%=render 'identificationForm'%>
+
+
 
 <%= link_to 'New Image', new_image_path %>
 <%#= render 'form' %>

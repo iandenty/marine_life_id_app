@@ -40,19 +40,27 @@ class IdentificationsController < ApplicationController
   # POST /identifications
   # POST /identifications.json
   def create
-    @image = Image.find(params[:image_id])
-
-    @identification = @image.identifications.new(params[:identification])
-
-    respond_to do |format|
-      if @identification.save
-        format.html { redirect_to images_path, notice: 'Identification was successfully created.' }
-        format.json { render json: @identification, status: :created, location: @identification }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @identification.errors, status: :unprocessable_entity }
-      end
+    #PRACTICE: Basic practice code
+    binding.pry
+    if Identification.is_practice_correct?(params)
+      redirect_to images_path, notice: 'Great job!'
+    else
+      redirect_to  images_path, notice: 'Try again'
     end
+
+    #IDENTIFICATION: Basic identification code
+    # @image = Image.find(params[:image_id])
+    # @identification = @image.identifications.new(params[:identification])
+
+    # respond_to do |format|
+    #   if @identification.save
+    #     format.html { redirect_to images_path, notice: 'Identification was successfully created.' }
+    #     format.json { render json: @identification, status: :created, location: @identification }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @identification.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PUT /identifications/1
