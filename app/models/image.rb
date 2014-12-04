@@ -1,7 +1,8 @@
 class Image < ActiveRecord::Base
-  attr_accessible :date_time, :image, :lat, :long, :species, :status, :user_id
+  attr_accessible :date_time, :image, :lat, :long, :species, :status, :user_id, :identifications_attributes
   belongs_to :user
   has_many :identifications
+  accepts_nested_attributes_for :identifications
   mount_uploader :image, ImageUploader
   validates :image, presence: true
   before_save :extract_exif
@@ -20,9 +21,20 @@ class Image < ActiveRecord::Base
     end
   end
 
+  #-----------------------------------------------------
+    # PRACTICE: Image is available for practice and randomised
+  #-----------------------------------------------------
+  def self.reviewed_images
+    if Image.where(status: "reviewed").count > 1
+      random_image = Image.order("RANDOM()").where(status: "reviewed").first
+      @image = random_image
+    else
+      nil
+    end
+  end
 
 #-----------------------------------------------------
-  # Image is available for user identification and randomised
+  # IDENTIFICATION: Image is available for user identification and randomised
 #-----------------------------------------------------
 
   def is_image_available?
@@ -36,9 +48,12 @@ class Image < ActiveRecord::Base
   def self.generate_random_image(current_user)
     if Image.count > 1
       random_image = Image.order("RANDOM()").first
-      select_random_image(random_image, current_user)
+      select_random_practice_image(random_image, current_user)
+
+      # TO ACTIVATE IDENTIFY STREAM:
+      # select_random_image(random_image, current_user)
     else
-      []
+      nil
     end
   end
 
@@ -49,7 +64,7 @@ class Image < ActiveRecord::Base
 
   def self.select_random_image(random_image, current_user)
     if random_image.is_image_available? && random_image.has_user_identified?(current_user) == false
-      @images = random_image
+      @image = random_image
     else
       generate_random_image(current_user)
     end

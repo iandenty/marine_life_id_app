@@ -1,4 +1,5 @@
 <div>
+  <% if @image != nil %>
   <ul>
       <li><%= image_tag @image.image_url(:thumb).to_s %></li>
       <li><%= @image.id %></li>
@@ -10,4 +11,5 @@
       <li><%= link_to 'Edit', edit_image_path(@image) %></li>
       <li><%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %></li>
   </ul>
+  <% end %>
 </div>

@@ -2,7 +2,10 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @image = Image.generate_random_image(current_user.id)
+    @image = Image.reviewed_images
+
+    # IDENTIFICATION: logic for identification
+    # @image = Image.generate_random_image(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +83,5 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

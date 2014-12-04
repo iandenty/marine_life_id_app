@@ -1,0 +1,33 @@
+<h1>Listing identifications</h1>
+
+<table>
+  <tr>
+    <th>Suborder</th>
+    <th>Family</th>
+    <th>Common name</th>
+    <th>Number</th>
+    <th>User</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @identifications.each do |identification| %>
+  <tr>
+    <td><%= identification.suborder %></td>
+    <td><%= identification.family %></td>
+    <td><%= identification.common_name %></td>
+    <td><%= identification.number %></td>
+    <td><%= identification.user_id %></td>
+    <td><%= identification.image_id %></td>
+    <td><%= link_to 'Show', identification %></td>
+    <td><%= link_to 'Edit', edit_identification_path(identification) %></td>
+    <td><%= link_to 'Destroy', identification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Identification', new_identification_path %>
