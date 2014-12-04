@@ -1,8 +1,7 @@
 
 <%=render 'nextImage'%>
 
-
-<%= form_for :identifications do |f| %>
+<%= form_for([@image, @identification]) do |f| %>
   <%= hidden_field_tag :image_id, @image.id%>
   <div class="field">
     <%= f.label :suborder %><br />
@@ -19,19 +18,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
-
-
-
-
-
-<% if @image != nil %>
-    <%= link_to 'New Identification', new_identification_path %>
-    <form action="/">
-        <input type="submit" value="next">
-    </form>
-
-    <br />
 <% end %>
 
 <%= link_to 'New Image', new_image_path %>

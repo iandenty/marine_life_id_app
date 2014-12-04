@@ -1,9 +1,9 @@
 MarineLifeIdApp::Application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
-  resources :images
-  resources :identifications
-
+  resources :images do
+    resources :identifications, except: [:index]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @image = Image.reviewed_images
-
+    @identification = Identification.new
     # IDENTIFICATION: logic for identification
     # @image = Image.generate_random_image(current_user.id)
 

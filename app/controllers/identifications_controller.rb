@@ -40,11 +40,13 @@ class IdentificationsController < ApplicationController
   # POST /identifications
   # POST /identifications.json
   def create
-    @identification = Identification.new(params[:identification])
+    @image = Image.find(params[:image_id])
+
+    @identification = @image.identifications.new(params[:identification])
 
     respond_to do |format|
       if @identification.save
-        format.html { redirect_to @identification, notice: 'Identification was successfully created.' }
+        format.html { redirect_to images_path, notice: 'Identification was successfully created.' }
         format.json { render json: @identification, status: :created, location: @identification }
       else
         format.html { render action: "new" }

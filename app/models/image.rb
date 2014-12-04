@@ -25,12 +25,7 @@ class Image < ActiveRecord::Base
     # PRACTICE: Image is available for practice and randomised
   #-----------------------------------------------------
   def self.reviewed_images
-    if Image.where(status: "reviewed").count > 1
-      random_image = Image.order("RANDOM()").where(status: "reviewed").first
-      @image = random_image
-    else
-      nil
-    end
+    Image.order("RANDOM()").where(status: "reviewed").first if Image.where(status: "reviewed").count > 1
   end
 
 #-----------------------------------------------------
