@@ -4,9 +4,11 @@
 $(function(){
   $("#practice").on("click", function(){
     $('#type_id').val("practice");
+  console.log($('#type_id').val());
   });
   $("#identify").on("click", function(){
     $('#type_id').val("identify");
+    console.log($('#type_id').val());
   });
   $('form').bind('submit', function() {
   });
