@@ -8,6 +8,11 @@ MarineLifeIdApp::Application.routes.draw do
     resources :identifications, except: [:index]
     resources :guesses, except: [:index]
   end
+  resources :animals do
+    collection do
+      get 'family'
+    end
+  end
 
   resources :identifications, only: [:index]
   # The priority is based upon order of creation:
