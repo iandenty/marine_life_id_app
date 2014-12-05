@@ -4,6 +4,8 @@
 $(function(){
   $("#practice").on("click", function(){
     $('#type_id').val("practice");
+    $('#practice').addClass("clicked");
+    $('#identify').addClass("unclicked");
   console.log($('#type_id').val());
   });
   $("#identify").on("click", function(){

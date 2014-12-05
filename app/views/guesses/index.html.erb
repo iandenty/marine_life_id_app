@@ -1,0 +1,33 @@
+<h1>Listing guesses</h1>
+
+<table>
+  <tr>
+    <th>Suborder</th>
+    <th>Family</th>
+    <th>Common name</th>
+    <th>User</th>
+    <th>Image</th>
+    <th>Correct</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guesses.each do |guess| %>
+  <tr>
+    <td><%= guess.suborder %></td>
+    <td><%= guess.family %></td>
+    <td><%= guess.common_name %></td>
+    <td><%= guess.user_id %></td>
+    <td><%= guess.image_id %></td>
+    <td><%= guess.correct %></td>
+    <td><%= link_to 'Show', guess %></td>
+    <td><%= link_to 'Edit', edit_guess_path(guess) %></td>
+    <td><%= link_to 'Destroy', guess, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guess', new_guess_path %>

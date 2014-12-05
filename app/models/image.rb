@@ -2,6 +2,7 @@ class Image < ActiveRecord::Base
   attr_accessible :date_time, :image, :lat, :long, :species, :status, :user_id, :identifications_attributes
   belongs_to :user
   has_many :identifications
+  has_many :guesses
   accepts_nested_attributes_for :identifications
   mount_uploader :image, ImageUploader
   validates :image, presence: true

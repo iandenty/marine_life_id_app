@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Suborder:</b>
+  <%= @guess.suborder %>
+</p>
+
+<p>
+  <b>Family:</b>
+  <%= @guess.family %>
+</p>
+
+<p>
+  <b>Common name:</b>
+  <%= @guess.common_name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @guess.user_id %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @guess.image_id %>
+</p>
+
+<p>
+  <b>Correct:</b>
+  <%= @guess.correct %>
+</p>
+
+
+<%= link_to 'Edit', edit_guess_path(@guess) %> |
+<%= link_to 'Back', guesses_path %>

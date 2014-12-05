@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
   def index
     @image = Image.reviewed_images
     @identification = Identification.new
+    @guess = Guess.new
     # IDENTIFICATION: logic for identification
     # @image = Image.generate_random_image(current_user.id)
 

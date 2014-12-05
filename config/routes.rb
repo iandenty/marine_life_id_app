@@ -1,10 +1,15 @@
 MarineLifeIdApp::Application.routes.draw do
+  resources :guesses
+
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :images do
     resources :identifications, except: [:index]
+    resources :guesses, except: [:index]
   end
 
+  resources :identifications, only: [:index]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

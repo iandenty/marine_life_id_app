@@ -1,3 +1,4 @@
+<%= render 'form' %>
 
 <button id="identify" type="button">Identify</button>
 <button id="practice" type="button">Practice</button>
@@ -5,9 +6,9 @@
 <%=render 'nextImage'%>
 
 
-<%=render 'identificationForm'%>
+<%=render 'identifications/form'%>
+<%=render 'guesses/form'%>
 
 
 
 <%= link_to 'New Image', new_image_path %>
-<%#= render 'form' %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  suborder: MyString
+  family: MyString
+  common_name: MyString
+  user_id: 1
+  image_id: 1
+  correct: false
+
+two:
+  suborder: MyString
+  family: MyString
+  common_name: MyString
+  user_id: 1
+  image_id: 1
+  correct: false

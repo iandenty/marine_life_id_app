@@ -3,7 +3,8 @@ class IdentificationsController < ApplicationController
   # GET /identifications.json
   def index
     @identifications = Identification.all
-
+    @image = Image.reviewed_images
+    @identification = Identification.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @identifications }
@@ -41,26 +42,27 @@ class IdentificationsController < ApplicationController
   # POST /identifications.json
   def create
     #PRACTICE: Basic practice code
-    binding.pry
-    if Identification.is_practice_correct?(params)
-      redirect_to images_path, notice: 'Great job!'
-    else
-      redirect_to  images_path, notice: 'Try again'
-    end
+    # binding.pry
+    # if Identification.is_practice_correct?(params)
+    #   redirect_to images_path, notice: 'Great job!'
+    # else
+    #   redirect_to  images_path, notice: 'Try again'
+    # end
 
     #IDENTIFICATION: Basic identification code
-    # @image = Image.find(params[:image_id])
-    # @identification = @image.identifications.new(params[:identification])
+    @image = Image.find(params[:image_id])
+    @identification = @image.identifications.new(params[:identification])
+    @identification.user_id = current_user.id
 
-    # respond_to do |format|
-    #   if @identification.save
-    #     format.html { redirect_to images_path, notice: 'Identification was successfully created.' }
-    #     format.json { render json: @identification, status: :created, location: @identification }
-    #   else
-    #     format.html { render action: "new" }
-    #     format.json { render json: @identification.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @identification.save
+        format.html { redirect_to images_path, notice: 'Identification was successfully created.' }
+        format.json { render json: @identification, status: :created, location: @identification }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @identification.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /identifications/1
