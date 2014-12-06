@@ -2,9 +2,11 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @image = Image.reviewed_images
-    @identification = Identification.new
-    @guess = Guess.new
+    # @image = Image.reviewed_images
+    # @identification = Identification.new
+    # @guess = Guess.new
+
+
     # IDENTIFICATION: logic for identification
     # @image = Image.generate_random_image(current_user.id)
 
@@ -13,6 +15,17 @@ class ImagesController < ApplicationController
       format.json { render json: @images }
     end
   end
+
+  def practice
+    @image = Image.reviewed_images
+    @identification = Identification.new
+    @guess = Guess.new
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @image }
+    end
+   end
 
   # GET /images/1
   # GET /images/1.json
@@ -30,10 +43,12 @@ class ImagesController < ApplicationController
   def new
     @image = Image.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @image }
-    end
+    render partial: "form"
+
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    #   format.json { render json: @image }
+    # end
   end
 
   # GET /images/1/edit

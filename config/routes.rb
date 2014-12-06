@@ -5,15 +5,15 @@ MarineLifeIdApp::Application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :images do
+   collection do
+     get :practice
+   end
     resources :identifications, except: [:index]
     resources :guesses, except: [:index]
   end
-  resources :animals do
-    collection do
-      get 'family'
-      get 'common'
-    end
-  end
+
+  get 'animals/family'
+  get 'animals/common'
 
   resources :identifications, only: [:index]
   # The priority is based upon order of creation:

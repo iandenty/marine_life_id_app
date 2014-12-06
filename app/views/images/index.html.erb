@@ -1,14 +1,16 @@
-<%= render 'form' %>
+<div id="buttons">
+    <button id="add_photos" type="button">Add photos</button>
+    <button id="identify" type="button">Identify</button>
+    <button id="practice" type="button">Practice</button>
+    <button id="explore" type="button">Explore</button>
+</div>
+<div id="photo_frame"><div>
 
-<button id="identify" type="button">Identify</button>
-<button id="practice" type="button">Practice</button>
+<%#=render 'nextImage'%>
 
-<%=render 'nextImage'%>
-
-
-<%=render 'identifications/form'%>
-<%=render 'guesses/form'%>
+<%#=render 'identifications/form'%>
+<%#=render 'guesses/form'%>
 
 
 
-<%= link_to 'New Image', new_image_path %>
+<%= link_to 'New Image', new_image_path, remote: true, id: "new_image" %>
