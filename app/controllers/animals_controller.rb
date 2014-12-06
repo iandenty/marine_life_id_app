@@ -8,6 +8,10 @@ class AnimalsController < ApplicationController
   def family
     family = Animal.select('DISTINCT family').order(:family).where(suborder: params[:suborder])
     render json: family
+  end
 
+  def common
+    common = Animal.select('DISTINCT common_name').order(:common_name).where(family: params[:family])
+    render json: common
   end
 end

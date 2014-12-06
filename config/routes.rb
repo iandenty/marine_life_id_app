@@ -11,6 +11,7 @@ MarineLifeIdApp::Application.routes.draw do
   resources :animals do
     collection do
       get 'family'
+      get 'common'
     end
   end
 
