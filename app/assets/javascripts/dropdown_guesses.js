@@ -1,7 +1,8 @@
-$(function(){
+function guess_dropdown(){
   $("#guess_family").parent().hide();
   $("#guess_common_name").parent().hide();
   $("#guess_suborder").on("change", function(){
+    console.log("helllo")
     selected_value = $(this).find(":selected").attr("value");
     $.ajax({
       type: "GET",
@@ -35,4 +36,4 @@ $(function(){
       });
     });
   });
-});
+}

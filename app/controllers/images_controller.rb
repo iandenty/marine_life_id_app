@@ -16,16 +16,18 @@ class ImagesController < ApplicationController
     end
   end
 
+  def identify
+    @image = Image.generate_random_image(current_user.id)
+    @identification = Identification.new
+    render partial: "identify"
+  end
+
   def practice
     @image = Image.reviewed_images
-    @identification = Identification.new
     @guess = Guess.new
+    render partial: "practice"
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @image }
-    end
-   end
+  end
 
   # GET /images/1
   # GET /images/1.json
@@ -60,10 +62,12 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(params[:image])
+    @image.user_id = current_user.id
+    @image.status = "unverified"
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to images_url }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
@@ -99,5 +103,4 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 end

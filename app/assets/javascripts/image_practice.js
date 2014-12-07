@@ -1,20 +1,28 @@
+
+
 //Retrieve random practice image
 $(function(){
-  $("#practice").on("click", function(){
-    $('#type_id').val("practice");
-    $('#practice').addClass("clicked");
-    $('#identify').addClass("unclicked");
-    $.ajax({
-      type: "GET",
-      url: "/images/practice/",
-      dataType: "JSON",
-    }).success(function(data){
-      $("#practice").after('<%= j render("nextImage") %>');
+  // Add new images
+  $('#add_photos').on("click", function(){
+    $('#photo_frame').empty();
+    $.get("/images/new/", function(data){
+      $('#photo_frame').append(data);
     });
   });
-  $('#add_photos').on("click", function(){
-    $.get("/images/new/", function(data){
-      $('#add_photos').html(data);
+  $("#practice").on("click", function(){
+    $('#practice').addClass("clicked");
+    $('#photo_frame').empty();
+    $.get("/images/practice/", function(data){
+      $('#photo_frame').append(data);
+      guess_dropdown();
+    });
+  });
+  $("#identify").on("click", function(){
+    $('#identify').addClass("clicked");
+    $('#photo_frame').empty();
+    $.get("/images/identify/", function(data){
+      $('#photo_frame').append(data);
+      identify_dropdown();
     });
   });
 });

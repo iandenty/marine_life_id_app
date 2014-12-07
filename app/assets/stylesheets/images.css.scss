@@ -1,3 +1,22 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav {
+  height: 100px;
+  background-color: rgba(217, 237, 247, 1.0);
+  position: relative;
+  #buttons { 
+      background-color: rgba(107, 166, 195, 1.0);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      bottom:0px;
+      position: absolute;
+      width: 100%;
+  }
+}
+
+#photo_frame {
+  margin: 0 auto;
+}
+

@@ -1,9 +1,8 @@
 <%= form_for([@image, @identification]) do |f| %>
   <%= hidden_field_tag :image_id, @image.id %>
-  <%= hidden_field_tag :type_id %>
   <div class="field">
     <%= f.label :suborder %><br />
-    <%= f.collection_select :suborder, Animal.select('DISTINCT(suborder)').order(:suborder), :suborder, :suborder, include_blank: true %>
+    <%= f.collection_select :suborder, Animal.select('DISTINCT(suborder)').order(:suborder), :suborder, :suborder, class: "dropdown-menu", include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :family %><br />

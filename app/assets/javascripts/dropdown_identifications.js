@@ -1,4 +1,4 @@
-$(function(){
+function identify_dropdown(){
   $("#identification_family").parent().hide();
   $("#identification_common_name").parent().hide();
   $("#identification_suborder").on("change", function(){
@@ -35,4 +35,4 @@ $(function(){
       });
     });
   });
-});
+};
