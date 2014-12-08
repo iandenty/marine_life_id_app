@@ -15,6 +15,7 @@ $(function(){
     $.get("/images/practice/", function(data){
       $('#photo_frame').append(data);
       guess_dropdown();
+      guess_next_page();
     });
   });
   $("#identify").on("click", function(){
@@ -23,6 +24,7 @@ $(function(){
     $.get("/images/identify/", function(data){
       $('#photo_frame').append(data);
       identify_dropdown();
+      identify_next_page();
     });
   });
 });

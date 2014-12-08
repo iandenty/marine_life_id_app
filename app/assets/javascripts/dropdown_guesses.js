@@ -37,3 +37,14 @@ function guess_dropdown(){
     });
   });
 }
+
+function guess_next_page(){
+  $("#next_practice_image").on("click", function(){
+    $('#photo_frame').empty();
+    $.get("/images/practice/", function(data){
+      $('#photo_frame').append(data);
+      guess_dropdown();
+      guess_next_page();
+    });
+  });
+}

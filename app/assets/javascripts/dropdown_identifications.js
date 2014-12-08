@@ -36,3 +36,14 @@ function identify_dropdown(){
     });
   });
 };
+
+function identify_next_page(){
+  $("#next_identify_image").on("click", function(){
+    $('#photo_frame').empty();
+    $.get("/images/identify/", function(data){
+      $('#photo_frame').append(data);
+      identify_dropdown();
+      identify_next_page();
+    });
+  });
+}

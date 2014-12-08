@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-color: rgba(244, 241, 245, 1.0); 
+}
+
 nav {
   height: 100px;
   background-color: rgba(217, 237, 247, 1.0);
@@ -13,10 +17,66 @@ nav {
       bottom:0px;
       position: absolute;
       width: 100%;
+      padding-left: 10px;
+      border-top: 1px solid rgba(155, 211, 235, 1.0);
+      border-bottom: 2px solid rgba(51, 163, 210, 1.0);
   }
 }
 
 #photo_frame {
-  margin: 0 auto;
+  margin: 2% auto;
+  width: 500px;
+  #photo_display{
+    display: table;
+    margin: 0 auto;
+    border: 1px solid rgba(163, 163, 163, 1.0);
+    border-radius: 5px;
+    background-color: white;
+    padding: 2%;
+    position: relative;
+    #photo_border {
+      img {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        li img {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+li {
+  list-style-type: none;
+}
+.field {
+  display: inline-block;
+}
+#actions {
+  margin: 0;
+  margin-bottom: 0;
 }
 
+#next_practice_image {
+  position: absolute;
+  top: 45%;
+  left: 105%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+#next_identify_image {
+  position: absolute;
+  top: 45%;
+  left: 105%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+#guess_button {
+  float: right;
+}
+
+#identify_button {
+  float: right;
+}

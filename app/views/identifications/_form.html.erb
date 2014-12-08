@@ -12,7 +12,7 @@
     <%= f.label :common_name %><br />
     <%= f.collection_select :common_name, [], :id, :common_name, include_blank: true %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" id="actions">
+    <%= f.submit "identify!", class: "btn btn-default", id: "identify_button" %>
   </div>
 <% end %>

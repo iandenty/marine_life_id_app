@@ -13,9 +13,12 @@ class GuessesController < ApplicationController
   end
 
   def new
-    binding.pry
     @guess = Guess.new
-    respond_with(@guess)
+    # respond_with(@guess)
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @guess }
+    end
   end
 
   def edit

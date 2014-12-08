@@ -2,8 +2,8 @@
   <%= hidden_field_tag :image_id, @image.id %>
 <!--   <div class="field">
     <%#= f.label :suborder %><br />
-    <%#= f.grouped_collection_select :suborder, Animal.select('DISTINCT suborder').order(:suborder), Animal.select('DISTINCT family').order(:family).where(suborder: :family), :suborder, :family, :family, :id %> -->
-  </div>
+    <%#= f.grouped_collection_select :suborder, Animal.select('DISTINCT suborder').order(:suborder), Animal.select('DISTINCT family').order(:family).where(suborder: :family), :suborder, :family, :family, :id %> 
+  </div>-->
 
   <div class="field">
     <%= f.label :suborder %><br />
@@ -19,7 +19,7 @@
     <%= f.collection_select :common_name, [], :id, :common_name, include_blank: true %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" id="actions">
+    <%= f.submit "guess!", class: "btn btn-default", id: "guess_button" %>
   </div>
 <% end %>
