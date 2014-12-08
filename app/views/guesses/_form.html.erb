@@ -1,9 +1,5 @@
 <%= form_for([@image, @guess]) do |f| %>
   <%= hidden_field_tag :image_id, @image.id %>
-<!--   <div class="field">
-    <%#= f.label :suborder %><br />
-    <%#= f.grouped_collection_select :suborder, Animal.select('DISTINCT suborder').order(:suborder), Animal.select('DISTINCT family').order(:family).where(suborder: :family), :suborder, :family, :family, :id %> 
-  </div>-->
 
   <div class="field">
     <%= f.label :suborder %><br />

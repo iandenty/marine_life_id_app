@@ -28,6 +28,17 @@ class GuessesController < ApplicationController
     @image = Image.find(params[:image_id])
     @guess = @image.guesses.new(params[:guess])
     @guess.user_id = current_user.id
+
+    respond_to do |format|
+      if @guess.save
+        format.html { redirect_to images_path, notice: 'Guess was successfully created.' }
+        format.json { render json: @guess, status: :created, location: @guess }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @guess.errors, status: :unprocessable_entity }
+      end
+    end
+  end
     
   #   if @guess.is_practice_correct?(params)
   #     @guess.correct = true
@@ -59,9 +70,4 @@ class GuessesController < ApplicationController
     @guess.destroy
     respond_with(@guess)
   end
-
-  private
-    def set_guess
-      @guess = Guess.find(params[:id])
-    end
 end
