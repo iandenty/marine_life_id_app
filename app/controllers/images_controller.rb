@@ -67,7 +67,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to images_url }
+        format.html { redirect_to @image }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
