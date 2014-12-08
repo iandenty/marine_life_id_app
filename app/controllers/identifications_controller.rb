@@ -41,15 +41,6 @@ class IdentificationsController < ApplicationController
   # POST /identifications
   # POST /identifications.json
   def create
-    #PRACTICE: Basic practice code
-    # binding.pry
-    # if Identification.is_practice_correct?(params)
-    #   redirect_to images_path, notice: 'Great job!'
-    # else
-    #   redirect_to  images_path, notice: 'Try again'
-    # end
-
-    #IDENTIFICATION: Basic identification code
     @image = Image.find(params[:image_id])
     @identification = @image.identifications.new(params[:identification])
     @identification.user_id = current_user.id

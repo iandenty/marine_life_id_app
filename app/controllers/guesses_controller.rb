@@ -39,27 +39,6 @@ class GuessesController < ApplicationController
       end
     end
   end
-    
-  #   if @guess.is_practice_correct?(params)
-  #     @guess.correct = true
-  #     @guess.save
-  #     redirect_to images_path, notice: 'Great job!'
-  #   else
-  #     @guess.correct = false
-  #     @guess.save
-  #     redirect_to images_path, notice: 'Try again!'
-  #   end
-  # end
-
-    respond_to do |format|
-      if @guess.save
-        format.html { redirect_to images_path, notice: 'Guess was successfully created.' }
-        format.json { render json: @guess, status: :created, location: @guess }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @guess.errors, status: :unprocessable_entity }
-      end
-    end
 
   def update
     @guess.update_attributes(params[:guess])
