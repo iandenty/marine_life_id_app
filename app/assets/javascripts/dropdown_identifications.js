@@ -42,7 +42,7 @@ function identify_dropdown(){
     $("#identify_button").parent().show();
   });
   $("form#new_identification").submit(function(){
-    var identifyInfo = $(this).serialize(0);
+    var identifyInfo = $(this).serialize();
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),

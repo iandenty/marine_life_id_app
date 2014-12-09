@@ -11,15 +11,15 @@ nav {
   background-color: rgba(217, 237, 247, 1.0);
   position: relative;
   #buttons { 
-      background-color: rgba(107, 166, 195, 1.0);
-      padding-top: 10px;
-      padding-bottom: 10px;
-      bottom:0px;
-      position: absolute;
-      width: 100%;
-      padding-left: 10px;
-      border-top: 1px solid rgba(155, 211, 235, 1.0);
-      border-bottom: 2px solid rgba(51, 163, 210, 1.0);
+    background-color: rgba(107, 166, 195, 1.0);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    bottom:0px;
+    position: absolute;
+    width: 100%;
+    padding-left: 10px;
+    border-top: 1px solid rgba(155, 211, 235, 1.0);
+    border-bottom: 2px solid rgba(51, 163, 210, 1.0);
   }
 }
 
@@ -34,6 +34,7 @@ nav {
     background-color: white;
     padding: 2%;
     position: relative;
+    color: black;
     #photo_border {
       text-align: center;
       img {
@@ -66,9 +67,10 @@ li {
   padding-bottom: 4%;
   background-color: white;
   border-color: rgba(163, 163, 163, 1.0);
-}  :hover {
-    color: rgba(107, 166, 195, 1.0);
-  }
+}
+#next_practice_image:hover {
+  color: rgba(107, 166, 195, 1.0);
+}
 
 #next_identify_image {
   position: absolute;
@@ -78,6 +80,9 @@ li {
   padding-bottom: 4%;
   background-color: white;
   border-color: rgba(163, 163, 163, 1.0);
+}
+#next_identify_image:hover {
+  color: rgba(107, 166, 195, 1.0);
 }
 
 #magnify_tab {
