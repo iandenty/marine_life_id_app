@@ -3,7 +3,6 @@ function guess_dropdown(){
   $("#guess_common_name").parent().hide();
   $("#guess_button").parent().hide();
   $("#guess_suborder").on("change", function(){
-    console.log("helllo")
     selected_value = $(this).find(":selected").attr("value");
     $.ajax({
       type: "GET",
@@ -42,6 +41,8 @@ function guess_dropdown(){
   $("#guess_common_name").on("change", function(){
     $("#guess_button").parent().show();
   });
+
+
   $("form#new_guess").submit(function(){
     var guessInfo = $(this).serialize(0);
     $.ajax({
@@ -52,7 +53,13 @@ function guess_dropdown(){
     }).success(function(json){
       $('#photo_frame').empty();
       $.get("/images/practice/", function(data){
+        $('#photo_frame').empty();
         $('#photo_frame').append(data);
+        var mapHeight = $('#update_image').height();
+        var mapWidth = $('#update_image').width();
+        map_toggle(mapHeight, mapWidth);
+        guess_dropdown();
+        guess_next_page();
         guess_dropdown();
         guess_next_page();
       });
@@ -66,6 +73,9 @@ function guess_next_page(){
     $('#photo_frame').empty();
     $.get("/images/practice/", function(data){
       $('#photo_frame').append(data);
+      var mapHeight = $('#update_image').height();
+      var mapWidth = $('#update_image').width();
+      map_toggle(mapHeight, mapWidth);
       guess_dropdown();
       guess_next_page();
     });

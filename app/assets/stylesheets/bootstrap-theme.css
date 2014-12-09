@@ -50,8 +50,8 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
-  border-color: #dbdbdb;
-  border-color: #ccc;
+  border-color: rgba(163, 163, 163, 1.0);
+  border-color: rgba(163, 163, 163, 1.0);
 }
 .btn-default:hover,
 .btn-default:focus {

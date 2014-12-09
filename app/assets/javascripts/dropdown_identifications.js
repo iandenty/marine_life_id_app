@@ -51,7 +51,13 @@ function identify_dropdown(){
     }).success(function(json){
       $('#photo_frame').empty();
       $.get("/images/identify/", function(data){
+        $('#photo_frame').empty();
         $('#photo_frame').append(data);
+        var mapHeight = $('#update_image').height();
+        var mapWidth = $('#update_image').width();
+        map_toggle(mapHeight, mapWidth);
+        guess_dropdown();
+        guess_next_page();
         identify_dropdown();
         identify_next_page();
       });
@@ -65,6 +71,11 @@ function identify_next_page(){
     $('#photo_frame').empty();
     $.get("/images/identify/", function(data){
       $('#photo_frame').append(data);
+      var mapHeight = $('#update_image').height();
+      var mapWidth = $('#update_image').width();
+      map_toggle(mapHeight, mapWidth);
+      guess_dropdown();
+      guess_next_page();
       identify_dropdown();
       identify_next_page();
     });
