@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require leaflet/leaflet
+//= require leaflet
+//= require leaflet-google
 //= require_tree .

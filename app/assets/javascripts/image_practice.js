@@ -1,5 +1,3 @@
-
-
 //Retrieve random practice image
 $(function(){
   // Add new images

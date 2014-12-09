@@ -1,0 +1,30 @@
+
+  <div id="photo_display">
+    <div id="photo_border">
+      <%= image_tag @image.image_url(:thumb).to_s, id: "update_image" %>
+      <div id="map"></div>
+      <div id="map_tab">
+        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+      </div>
+      <div id="image_tab">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </div>
+      <div id="lat_long">
+      <%= form_for(@image) do |f| %>
+        <div class="field">
+          <%= f.label :Latitude %><br />
+          <%= f.text_field :lat %>
+        </div>
+        <div class="field">
+          <%= f.label :Longitude %><br />
+          <%= f.text_field :long %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-default"%>
+    </div>
+  <% end %>

@@ -67,8 +67,12 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image }
-        format.json { render json: @image, status: :created, location: @image }
+        if @image.date_time.nil? || @image.lat.nil? || @image.long.nil?
+          format.html { render action: "edit" }
+        else
+          format.html { redirect_to images_path }
+          format.json { render json: @image, status: :created, location: @image }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @image.errors, status: :unprocessable_entity }
@@ -83,7 +87,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.update_attributes(params[:image])
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.html { redirect_to images_path, notice: '' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
