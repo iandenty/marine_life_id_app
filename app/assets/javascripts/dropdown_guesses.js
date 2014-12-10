@@ -1,4 +1,5 @@
 function guess_dropdown(){
+  $("#guess_suborder, #guess_family, #guess_common_name").addClass("form-control")
   $("#guess_family").parent().hide();
   $("#guess_common_name").parent().hide();
   $("#guess_button").parent().hide();

@@ -1,4 +1,5 @@
 function identify_dropdown(){
+  $("#identification_suborder, #identification_family, #identification_common_name").addClass("form-control")
   $("#identification_family").parent().hide();
   $("#identification_common_name").parent().hide();
   $("#identify_button").parent().hide();

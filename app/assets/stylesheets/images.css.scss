@@ -59,34 +59,30 @@ li {
   margin-bottom: 0;
 }
 
-#next_practice_image {
-  position: absolute;
-  top: 45%;
-  left: 105%;
-  padding-top: 4%;
-  padding-bottom: 4%;
+#add_photos, #identify, #practice, #explore, #guess_button, #next_practice_image, #next_identify_image {
+  color: rgba(163, 163, 163, 1.0);
   background-color: white;
-  border-color: rgba(163, 163, 163, 1.0);
+  border: 1px solid rgba(163, 163, 163, 1.0);
 }
-#next_practice_image:hover {
+#add_photos:hover, #identify:hover, #practice:hover, #explore:hover, #next_practice_image:hover, #next_identify_image:hover, #guess_button:hover  {
   color: rgba(107, 166, 195, 1.0);
 }
 
-#next_identify_image {
+#next_practice_image, #next_identify_image {
   position: absolute;
   top: 45%;
   left: 105%;
   padding-top: 4%;
   padding-bottom: 4%;
-  background-color: white;
-  border-color: rgba(163, 163, 163, 1.0);
 }
-#next_identify_image:hover {
-  color: rgba(107, 166, 195, 1.0);
+
+#guess_button, #identify_button {
+  float: right;
 }
 
 #magnify_tab {
   font-size: 20px;
+  text-shadow: 0 1px 0 #fff;
   padding: 1%;
   color: rgba(163, 163, 163, 1.0);
   border: 1px solid rgba(163, 163, 163, 1.0);
@@ -95,32 +91,16 @@ li {
   display: block;
   position: absolute;
   left: 100%;
-  top: 53px;
+  top: 52px;
   :hover {
     color: rgba(107, 166, 195, 1.0);
   }
 }
 
 // Upload images
-#map_tab {
+#image_tab, #map_tab {
   font-size: 20px;
-  padding: 1%;
-  color: rgba(163, 163, 163, 1.0);
-  border: 1px solid rgba(163, 163, 163, 1.0);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  display: block;
-  position: absolute;
-  left: 100%;
-  top: 20px;
-  :hover {
-    color: rgba(107, 166, 195, 1.0);
-  }
-}
-
-
-#image_tab {
-  font-size: 20px;
+  text-shadow: 0 1px 0 #fff;
   padding: 1%;
   color: rgba(163, 163, 163, 1.0);
   border: 1px solid rgba(163, 163, 163, 1.0);
@@ -135,24 +115,19 @@ li {
   }
 }
 
-#guess_button {
-  float: right;
-}
-
-#identify_button {
-  float: right;
-}
-
-// Map CSS
-#map { 
-
-}
-
-.field {
-}
-
 #lat_long {
   margin-top: 2%;
+}
+
+#new_guess {
+  padding-top: 1%;
+}
+
+.form-control{
+  position: relative;
+  font-size: 13px;
+  color: rgba(163, 163, 163, 1.0);
+  border-color: rgba(163, 163, 163, 1.0);
 }
 
 .leaflet-google-layer{
@@ -163,5 +138,5 @@ li {
 }
 
 #update_image {
-  width: 500px;
+  width: 480px;
 }
