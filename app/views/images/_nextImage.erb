@@ -1,5 +1,5 @@
 <div id="photo_border">
   <% if @image != nil %>
-    <%= image_tag @image.image_url(:thumb).to_s, id: "update_image" %>
+    <%= image_tag @image.image_url, id: "update_image" %>
   <% end %>
 </div>

@@ -62,6 +62,13 @@ function guess_dropdown(){
         guess_next_page();
         guess_dropdown();
         guess_next_page();
+        $('#magnify_tab').on('click', function(){
+          $('#update_image').loupe({
+            width: 200,
+            height: 150,
+            loupe: 'loupe'
+          });
+        });
       });
     });
     return false;
@@ -78,6 +85,13 @@ function guess_next_page(){
       map_toggle(mapHeight, mapWidth);
       guess_dropdown();
       guess_next_page();
+      $('#magnify_tab').on('click', function(){
+        $('#update_image').loupe({
+          width: 200,
+          height: 150,
+          loupe: 'loupe'
+        });
+      });
     });
   });
 }

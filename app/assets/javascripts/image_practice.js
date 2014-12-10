@@ -23,6 +23,13 @@ $(function(){
       map_toggle(mapHeight, mapWidth);
       guess_dropdown();
       guess_next_page();
+      $('#magnify_tab').on('click', function(){
+        $('#update_image').loupe({
+          width: 200,
+          height: 150,
+          loupe: 'loupe'
+        });
+      });
     });
   });
   $("#identify").on("click", function(){
@@ -35,6 +42,13 @@ $(function(){
       map_toggle(mapHeight, mapWidth);
       identify_dropdown();
       identify_next_page();
+      $('#magnify_tab').on('click', function(){
+        $('#update_image').loupe({
+          width: 200,
+          height: 150,
+          loupe: 'loupe'
+        });
+      });
     });
   });
 });

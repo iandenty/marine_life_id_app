@@ -60,6 +60,13 @@ function identify_dropdown(){
         guess_next_page();
         identify_dropdown();
         identify_next_page();
+        $('#magnify_tab').on('click', function(){
+          $('#update_image').loupe({
+            width: 200,
+            height: 150,
+            loupe: 'loupe'
+          });
+        });
       });
     });
     return false;
@@ -78,6 +85,13 @@ function identify_next_page(){
       guess_next_page();
       identify_dropdown();
       identify_next_page();
+      $('#magnify_tab').on('click', function(){
+        $('#update_image').loupe({
+          width: 200,
+          height: 150,
+          loupe: 'loupe'
+        });
+      });
     });
   });
 }
