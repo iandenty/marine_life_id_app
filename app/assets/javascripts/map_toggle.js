@@ -22,8 +22,16 @@ function map_toggle(mapHeight, mapWidth){
     });
     if($("#image_lat").length && $("#image_long").length){
       marker_on_click(map);
-    }
+    } else if($("#image_lat_display").length && $("#image_long_display").length) {
+      assign_marker(map);
+    };
   };
+};
+
+function assign_marker(map){
+  var lat = parseFloat($("#image_lat_display").val());
+  var lng = parseFloat($("#image_long_display").val());
+  var marker = L.marker([lat, lng]).addTo(map);
 };
 
 function marker_on_click(map){
