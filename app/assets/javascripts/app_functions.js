@@ -20,12 +20,14 @@ $(function(){
 
 function guess_next_page(){
   $("#next_practice_image").on("click", function(){
+    $('#photo_frame').empty();
     get_new_image("practice"); 
   });
 };
 
 function identify_next_page(){
   $("#next_identify_image").on("click", function(){
+    $('#photo_frame').empty();
     get_new_image("identify"); 
   });
 };
