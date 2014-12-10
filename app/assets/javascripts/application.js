@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require leaflet
+//= require leaflet-google
+//= require loupe
 //= require_tree .

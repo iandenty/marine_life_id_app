@@ -31,7 +31,7 @@ class GuessesController < ApplicationController
 
     respond_to do |format|
       if @guess.save
-        format.html { redirect_to images_path, notice: 'Guess was successfully created.' }
+        format.html { redirect_to image_guesses_path, notice: 'Guess was successfully created.' }
         format.json { render json: @guess, status: :created, location: @guess }
       else
         format.html { render action: "new" }

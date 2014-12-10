@@ -42,7 +42,7 @@ function identify_dropdown(){
     $("#identify_button").parent().show();
   });
   $("form#new_identification").submit(function(){
-    var identifyInfo = $(this).serialize(0);
+    var identifyInfo = $(this).serialize();
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),
@@ -51,22 +51,16 @@ function identify_dropdown(){
     }).success(function(json){
       $('#photo_frame').empty();
       $.get("/images/identify/", function(data){
+        $('#photo_frame').empty();
         $('#photo_frame').append(data);
+        $('#update_image').on("load", set_map_size);
+        guess_dropdown();
+        guess_next_page();
         identify_dropdown();
         identify_next_page();
+        $('#magnify_tab').click(magnify_image);
       });
     });
     return false;
   });
 };
-
-function identify_next_page(){
-  $("#next_identify_image").on("click", function(){
-    $('#photo_frame').empty();
-    $.get("/images/identify/", function(data){
-      $('#photo_frame').append(data);
-      identify_dropdown();
-      identify_next_page();
-    });
-  });
-}

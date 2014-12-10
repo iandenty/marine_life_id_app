@@ -1,6 +1,16 @@
 <div id="photo_display">
 
   <%=render 'nextImage'%>
+  <div id="map"></div>
+  <div id="map_tab">
+    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+  </div>
+  <div id="image_tab">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  </div>
+  <div id="magnify_tab">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+  </div>
   <%=render 'guesses/form'%>
 
   <button type="button" id="next_practice_image" class="btn btn-default" aria-label="Left Align">

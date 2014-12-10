@@ -1,26 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-
-<p>
-  <b>Date time:</b>
-  <%= @image.date_time %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= @image.image %>
-</p>
-
-<p>
-  <b>Lat:</b>
-  <%= @image.lat %>
-</p>
-
-<p>
-  <b>Long:</b>
-  <%= @image.long %>
-</p>
-
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<div id="photo_display">
+  <ul>
+    <li>
+      <%= image_tag @image.image_url(:thumb).to_s %>
+    </li>
+    <li>
+      <b>Date time:</b><%= @image.date_time %>
+    </li>
+    <li>
+      <b>Lat:</b><%= @image.lat %>
+    </li>
+    <li>
+      <b>Long:</b><%= @image.long %>
+    </li>
+  </ul>
+</div>

@@ -3,7 +3,6 @@ function guess_dropdown(){
   $("#guess_common_name").parent().hide();
   $("#guess_button").parent().hide();
   $("#guess_suborder").on("change", function(){
-    console.log("helllo")
     selected_value = $(this).find(":selected").attr("value");
     $.ajax({
       type: "GET",
@@ -52,22 +51,16 @@ function guess_dropdown(){
     }).success(function(json){
       $('#photo_frame').empty();
       $.get("/images/practice/", function(data){
+        $('#photo_frame').empty();
         $('#photo_frame').append(data);
+        $('#update_image').on("load", set_map_size);
         guess_dropdown();
         guess_next_page();
+        guess_dropdown();
+        guess_next_page();
+        $('#magnify_tab').click(magnify_image);
       });
     });
     return false;
-  });
-}
-
-function guess_next_page(){
-  $("#next_practice_image").on("click", function(){
-    $('#photo_frame').empty();
-    $.get("/images/practice/", function(data){
-      $('#photo_frame').append(data);
-      guess_dropdown();
-      guess_next_page();
-    });
   });
 }

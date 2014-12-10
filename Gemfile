@@ -8,6 +8,8 @@ gem 'rails', '3.2.19'
 gem 'pg'
 gem 'devise'
 gem 'rails_12factor'
+gem 'leaflet-rails'
+
 
 #Gems for image manipulation
 gem 'carrierwave'
