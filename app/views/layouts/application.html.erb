@@ -10,20 +10,24 @@
 </head>
 <body>
   <nav id="user_nav">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+    <div id="user_info">
+      <% if user_signed_in? %>
+        Logged in as <span><%= current_user.email %></span>.
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+  </div>
     <div id="buttons">
       <button id="add_photos" type="button" class="btn btn-default">Add photos</button>
       <button id="identify" type="button" class="btn btn-default">Identify</button>
       <button id="practice" type="button" class="btn btn-default">Practice</button>
       <button id="explore" type="button" class="btn btn-default">Explore</button>
     </div>
+    <div id="logo1"></div>
+    <div id="logo2"></div>
   </nav>
 
   <% flash.each do |name, msg| %>
@@ -31,6 +35,6 @@
   <% end %>
 
 <%= yield %>
-
+  <footer></footer>
 </body>
 </html>
