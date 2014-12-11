@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# To seed images
+# Image.create image: File.open(File.join(Rails.root, "db", "pictures_seeds", "image1.png"))
