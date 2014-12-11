@@ -8,6 +8,7 @@ gem 'rails', '3.2.19'
 gem 'pg'
 gem 'devise'
 gem 'leaflet-rails'
+gem 'faker'
 
 
 #Gems for image manipulation

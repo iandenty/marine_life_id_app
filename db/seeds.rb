@@ -8,3 +8,33 @@
 
 # To seed images
 # Image.create image: File.open(File.join(Rails.root, "db", "pictures_seeds", "image1.png"))
+
+
+identification_image_src_array = Dir.glob("db/identify_images/*.jpg")
+guess_image_src_array = Dir.glob("db/practice_images/*.jpg")
+
+identification_image_src_array.each do |id_image|
+  file_name = File.basename(id_image)
+  Image.create({
+    image: File.open(File.join(Rails.root, "db", "identify_images", file_name)),
+    user_id: rand(1..5),
+    lat: Faker::Address.latitude,
+    long: Faker::Address.longitude,
+    date_time: Faker::Time.between(2.days.ago, Time.now),
+    status: "unverified",
+    species: Animal.order("RANDOM()").first.common_name
+    })
+end
+
+guess_image_src_array.each do |guess_image|
+  file_name = File.basename(guess_image)
+  Image.create({
+    image: File.open(File.join(Rails.root, "db", "practice_images", file_name)),
+    user_id: rand(1..5),
+    lat: Faker::Address.latitude,
+    long: Faker::Address.longitude,
+    date_time: Faker::Time.between(2.days.ago, Time.now),
+    status: "reviewed",
+    species: Animal.order("RANDOM()").first.common_name
+    })
+end
