@@ -43,7 +43,7 @@ function guess_dropdown(){
     $("#guess_button").parent().show();
   });
   $("form#new_guess").submit(function(){
-    var guessInfo = $(this).serialize(0);
+    var guessInfo = $(this).serialize();
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),
@@ -55,8 +55,8 @@ function guess_dropdown(){
         $('#photo_frame').empty();
         $('#photo_frame').append(data);
         $('#update_image').on("load", set_map_size);
-        guess_dropdown();
-        guess_next_page();
+        identify_dropdown();
+        identify_next_page();
         guess_dropdown();
         guess_next_page();
         $('#magnify_tab').click(magnify_image);
