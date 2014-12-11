@@ -10,6 +10,7 @@ gem 'devise'
 gem 'rails_12factor'
 gem 'leaflet-rails'
 gem 'faker'
+gem "fog", "~> 1.3.1"
 
 
 #Gems for image manipulation
