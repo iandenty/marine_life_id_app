@@ -20,10 +20,12 @@ nav {
     width: 100%;
     padding-left: 10px;
     border-bottom: 1px solid rgba(163, 163, 163, 1.0);
+    z-index: 0;
   }
 }
 
 #user_info {
+  font-family: 'Poiret One', cursive;
   color: rgba(163, 163, 163, 1.0);
   padding-left: 10px;
   span {
@@ -34,13 +36,26 @@ nav {
 #logo1 {
   box-sizing: border-box;
   position: absolute;
-  right: 30px;
+  right: 20px;
   bottom: 1px;
   width: 200px;
   height: 80px;
   background-image: url('dolphin_logo.png');
   background-repeat: no-repeat;
   background-size: contain;
+  z-index: -1;
+}
+
+#logo2 {
+  position: absolute;
+  right: 220px;
+  bottom: 0px;
+  width: 120px;
+  height: 40px;
+  background-image: url('dolphin_logo2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
 }
 
 #space1 {
@@ -48,7 +63,8 @@ nav {
   border: 2px solid white;
   position: absolute;
   bottom: -1%;
-  right: 73px;
+  right: 63px;
+  z-index: 2;
 }
 
 #space2 {
@@ -56,19 +72,18 @@ nav {
   border: 2px solid white;
   position: absolute;
   bottom: -1%;
-  right: 201px;
+  right: 191px;
+  z-index: 2;
 }
 
-// #logo2 {
-//   position: absolute;
-//   left: 70%;
-//   bottom: 0%;
-//   width: 200px;
-//   height: 40px;
-//   background-image: url('dolphin_logo2.png');
-//   background-repeat: no-repeat;
-//   background-size: contain;
-// }
+#space3 {
+  width: 84px;
+  border: 1px solid white;
+  position: absolute;
+  bottom: -1px;
+  right: 253px;
+  z-index: 2;
+}
 
 #photo_frame {
   margin: 2% auto;
@@ -106,27 +121,93 @@ li {
   margin-bottom: 0;
 }
 
-#add_photos, #identify, #practice, #explore, #guess_button, #next_practice_image, #next_identify_image, #identify_button {
-  color: rgba(163, 163, 163, 1.0);
+#add_photos, #identify, #practice, #explore, #guess_button, #identify_button, #update_button, #create_button {
   background-color: white;
   border: 1px solid rgba(163, 163, 163, 1.0);
-  width: 15%;
+  // width: 15%;
   text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 22px;
 }
-#add_photos:hover, #identify:hover, #practice:hover, #explore:hover, #next_practice_image:hover, #next_identify_image:hover, #guess_button:hover, #identify_button:hover  {
+#add_photos:focus, #identify:focus, #practice:focus, #explore:focus, #guess_button:focus, #identify_button:focus, #update_button:focus, #create_button:focus {
+  outline:thin dotted;
+  outline:5px auto -webkit-focus-ring-color;
+  outline-color: rgba(107, 166, 195, 1.0);
+  outline-offset:-2px
+}
+
+#add_photos:hover, #identify:hover, #practice:hover, #explore:hover, #next_practice_image:hover, #next_identify_image:hover, #guess_button:hover, #identify_button:hover, #update_button:hover, #create_button:hover   {
   color: rgba(107, 166, 195, 1.0);
 }
+
+.btn .btn-default {
+  color: rgba(163, 163, 163, 1.0);
+}
+
+#add_photos, #identify, #practice, #explore {
+  width: 15%
+}
+
+#update_button, #create_button {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 30%;
+  float: right;
+}
+
+#guess_button, #identify_button {
+  width: 30%;
+}
+
+form, #new_identification, #new_guess, #image_image {
+  padding-top: 2%;
+  font-family: 'Poiret One', cursive;
+  color: rgba(163, 163, 163, 1.0);
+}
+
+#next {
+  font-size: 20px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+}
+
+.btn-selected {
+  color: rgba(107, 166, 195, 1.0)!important;
+  outline:thin dotted;
+  outline:5px auto -webkit-focus-ring-color;
+  outline-color: rgba(107, 166, 195, 1.0);
+  outline-offset:-2px
+}
+
 
 #next_practice_image, #next_identify_image {
   position: absolute;
   top: 45%;
   left: 105%;
-  padding-top: 4%;
-  padding-bottom: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: rgba(163, 163, 163, 1.0);
+  background-color: white;
+  border: 1px solid rgba(163, 163, 163, 1.0);
+  width: 15%;
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+#next_practice_image:focus, #next_identify_image:focus {
+  outline:thin dotted;
+  outline:5px auto -webkit-focus-ring-color;
+  outline-color: rgba(107, 166, 195, 1.0);
+  outline-offset:-2px
 }
 
 #guess_button, #identify_button {
   float: right;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 #magnify_tab {
@@ -166,10 +247,6 @@ li {
 
 #lat_long {
   margin-top: 2%;
-}
-
-#new_guess {
-  padding-top: 1%;
 }
 
 .form-control{

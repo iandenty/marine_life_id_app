@@ -5,16 +5,27 @@ $(function(){
   // Add new image
   $('#add_photos').on("click", function(){
     get_new_image("new");
+    $('#add_photos').addClass("btn-selected");
+    $('#practice, #identify, #explore').removeClass("btn-selected");
   });
 
   // Add practice image
   $("#practice").on("click", function(){
     get_new_image("practice");
+    $('#practice').addClass("btn-selected");
+    $('#add_photos, #identify, #explore').removeClass("btn-selected");
   });
 
   //Add identify image
   $("#identify").on("click", function(){
     get_new_image("identify");
+    $('#identify').addClass("btn-selected");
+    $('#add_photos, #practice, #explore').removeClass("btn-selected");
+  });
+  //Functionality to be added
+  $("#explore").on("click", function(){
+    $('#explore').addClass("btn-selected");
+    $('#add_photos, #practice, #identify').removeClass("btn-selected");
   });
 });
 
