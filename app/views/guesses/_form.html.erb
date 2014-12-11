@@ -1,3 +1,4 @@
+
 <%= form_for([@image, @guess]) do |f| %>
   <%= hidden_field_tag :image_id, @image.id %>
 
@@ -19,3 +20,4 @@
     <%= f.submit "guess!", class: "btn btn-default", id: "guess_button" %>
   </div>
 <% end %>
+

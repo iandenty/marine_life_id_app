@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'rails_12factor'
 gem 'leaflet-rails'
+gem 'faker'
 
 
 #Gems for image manipulation

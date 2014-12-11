@@ -3,6 +3,9 @@
 <head>
 
   <title>MarineLifeIdApp</title>
+  <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -10,27 +13,33 @@
 </head>
 <body>
   <nav id="user_nav">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+    <div id="user_info">
+      <% if user_signed_in? %>
+        Logged in as <span><%= current_user.email %></span>.
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}", class: "flash" %>
+      <% end %>
+  </div>
     <div id="buttons">
       <button id="add_photos" type="button" class="btn btn-default">Add photos</button>
       <button id="identify" type="button" class="btn btn-default">Identify</button>
       <button id="practice" type="button" class="btn btn-default">Practice</button>
-      <button id="explore" type="button" class="btn btn-default">Explore</button>
+      <a href="/"><button id="explore" type="button" class="btn btn-default">Explore</button></a>
     </div>
+    <a href="/"><div id="logo1"></div></a>
+    <div id="logo2"></div>
+    <div id="space1"></div>
+    <div id="space2"></div>
+    <div id="space3"></div>
   </nav>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
-
 <%= yield %>
-
+  <footer></footer>
 </body>
 </html>
