@@ -9,12 +9,12 @@ function map_toggle(mapHeight, mapWidth){
     $('#image_tab').toggle();
     $('#map').toggle();
     $('#map_tab').on('click', function(){
-      map.invalidateSize()
       $('#map_tab').toggle();
       $('#image_tab').toggle();
       $('#update_image').toggle();
       $('#map').toggle();
     });
+    map.invalidateSize()
     $('#image_tab').on('click', function(){
       $('#map_tab').toggle();
       $('#image_tab').toggle();
