@@ -3,6 +3,7 @@ function map_toggle(mapHeight, mapWidth){
     $('#map').css({'height':mapHeight+'px'});
     $('#map').css({'width':mapWidth+'px'});
     var map = L.map('map').setView([parseFloat($("#image_lat_display").val()), parseFloat($("#image_long_display").val())], 4);
+    map.invalidateSize()
     var ggleLayer;
     ggleLayer = new L.Google('TERRAIN')
     map.addLayer(ggleLayer);
