@@ -9,6 +9,7 @@ MarineLifeIdApp::Application.routes.draw do
    collection do
      get :practice
      get :identify
+     get :explore
    end
     resources :identifications, except: [:index]
     resources :guesses, except: [:index]

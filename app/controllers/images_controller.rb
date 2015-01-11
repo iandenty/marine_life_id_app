@@ -29,6 +29,12 @@ class ImagesController < ApplicationController
 
   end
 
+  def explore
+    render partial: "explore"
+    @images = Image.where(status: "reviewed")
+
+  end
+
   # GET /images/1
   # GET /images/1.json
   def show

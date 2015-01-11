@@ -6,7 +6,7 @@ function map_toggle(mapHeight, mapWidth){
     var ggleLayer;
     ggleLayer = new L.Google('TERRAIN')
     map.addLayer(ggleLayer);
-    map.invalidateSize()
+    map.invalidateSize();
     $('#image_tab').toggle();
     $('#map').toggle();
     $('#map_tab').on('click', function(){

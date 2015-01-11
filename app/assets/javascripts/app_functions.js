@@ -4,8 +4,7 @@ $(function(){
 
   //Functionality to be added
   $("#explore").on("click", function(){
-    console.log("helllllloooo")
-    $('#photo_frame').html("<div id='explore_map'></div>");
+    get_explore("explore");
     $('#explore').addClass("btn-selected");
     $('#add_photos, #practice, #identify').removeClass("btn-selected");
   });
@@ -31,6 +30,25 @@ $(function(){
     $('#add_photos, #practice, #explore').removeClass("btn-selected");
   });
 });
+
+function get_explore(route){
+  $('#photo_frame').empty();
+  $.get("/images/"+route+"/", function(data){
+    $('#photo_frame').append(data);
+    $('#explore_map').on("load", function(){
+    });
+    $('#photo_frame').css({'width': 80 + '%'})
+    $('#photo_frame').css({'height': 500 + 'px'})
+    var mapHeight = $('#photo_frame').height();
+    var mapWidth = $('#photo_frame').width();
+    $('#map').css({'height':mapHeight+'px'});
+    $('#map').css({'width':mapWidth+'px'});
+    var map = L.map('map').setView([54.001282, -3.333363], 4);
+    var ggleLayer;
+    ggleLayer = new L.Google('TERRAIN')
+    map.addLayer(ggleLayer);
+  });
+};
 
 function guess_next_page(){
   $("#next_practice_image").on("click", function(){
