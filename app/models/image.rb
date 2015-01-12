@@ -12,7 +12,8 @@ class Image < ActiveRecord::Base
     # Extract exif information from image
   #-----------------------------------------------------
   def extract_exif
-    path = File.join(Rails.root, "public", self.image.url)
+    # path = File.join(Rails.root, "public", self.image.url)
+    path = File.join(Rails.root, "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}", self.image.url)
     exif_data = EXIFR::JPEG.new(path)
     if exif_data.gps?
       self.date_time = exif_data.date_time
