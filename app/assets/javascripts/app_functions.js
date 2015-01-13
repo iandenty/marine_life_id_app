@@ -26,7 +26,7 @@ $(function(){
       console.log(data);
       data.forEach(function(obj){
         var marker = L.marker([obj["lat"], obj["long"]]).addTo(map);
-        marker.bindPopup("<b>"+obj["species"]+"<br></b><img class='popup_image' style='width: 30%; height: 30%' src="+obj["image"]["thumb"]["url"]+">");
+        marker.bindPopup("<b>"+obj["species"]+"<br></b><img class='popup_image' style='width: 50%; height: 50%' src="+obj["image"]["thumb"]["url"]+">");
       });
     });
   });
