@@ -4,6 +4,7 @@ $(function(){
 
   //Functionality to be added
   $("#explore").on("click", function(){
+    $('#photo_frame').empty();
     // get_explore("explore");
     $('#explore').addClass("btn-selected");
     $('#add_photos, #practice, #identify').removeClass("btn-selected");
