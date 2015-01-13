@@ -30,9 +30,9 @@ class ImagesController < ApplicationController
   end
 
   def explore
-    render partial: "explore"
-    @images = Image.where(status: "reviewed")
-
+    # render partial: "explore"
+    explore = Image.where(status: "reviewed")
+    render json: explore
   end
 
   # GET /images/1

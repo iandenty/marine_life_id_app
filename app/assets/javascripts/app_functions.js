@@ -4,9 +4,31 @@ $(function(){
 
   //Functionality to be added
   $("#explore").on("click", function(){
-    get_explore("explore");
+    // get_explore("explore");
     $('#explore').addClass("btn-selected");
     $('#add_photos, #practice, #identify').removeClass("btn-selected");
+    $("<div id='photo_display'><div id='map'></div>").appendTo($('#photo_frame')).show()
+    $('#photo_frame').css({'width': 80 + '%'})
+    $('#photo_frame').css({'height': 500 + 'px'})
+    var mapHeight = $('#photo_frame').height();
+    var mapWidth = $('#photo_frame').width();
+    $('#map').css({'height':mapHeight+'px'});
+    $('#map').css({'width':mapWidth+'px'});
+    var map = L.map('map').setView([54.001282, -3.333363], 4);
+    var ggleLayer;
+    ggleLayer = new L.Google('TERRAIN')
+    map.addLayer(ggleLayer);
+    $.ajax({
+      type: "GET",
+      url: "/images/explore/",
+      dataType: "JSON"
+    }).success(function(data){
+      console.log(data);
+      data.forEach(function(obj){
+        var marker = L.marker([obj["lat"], obj["long"]]).addTo(map);
+        marker.bindPopup("<b>"+obj["species"]+"<br></b><img src="+obj["image"]["thumb"]["url"]+">");
+      });
+    });
   });
 
   // Add new image
@@ -35,8 +57,6 @@ function get_explore(route){
   $('#photo_frame').empty();
   $.get("/images/"+route+"/", function(data){
     $('#photo_frame').append(data);
-    $('#explore_map').on("load", function(){
-    });
     $('#photo_frame').css({'width': 80 + '%'})
     $('#photo_frame').css({'height': 500 + 'px'})
     var mapHeight = $('#photo_frame').height();
